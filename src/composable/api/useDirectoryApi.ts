@@ -23,10 +23,17 @@ export function useDirectoryApi() {
     return directories
   }
 
+  // 获取所有目录
+  async function getAll() {
+    const directories = await directoryService.getAll()
+    return directories
+  }
+
   return {
     createDirectory,
     updateDirectory,
     deleteDirectory,
     getDirectoryList,
+    getAll,
   }
 }

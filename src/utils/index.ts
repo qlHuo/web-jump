@@ -29,3 +29,27 @@ export const uuid = (): string => {
     return v.toString(16)
   })
 }
+
+/**
+ * @Description 比较两个版本号的大小。
+ * @Author holyer
+ * @param { String } v1 - 第一个版本号字符串，格式为 "主版本号.次版本号.修订号"，例如 "1.2.3"。
+ * @param { String } v2 - 第二个版本号字符串，格式同 v1。
+ * @return { Number }  如果 v1 大于 v2，返回 1；如果 v1 小于 v2，返回 -1；如果相等，返回 0。
+ */
+export const compareVersions = (v1: string, v2: string) => {
+  const parts1 = v1.split('.').map(Number)
+  const parts2 = v2.split('.').map(Number)
+
+  for (let i = 0; i < Math.max(parts1.length, parts2.length); i++) {
+    const num1 = parts1[i] || 0
+    const num2 = parts2[i] || 0
+    // v1 > v2
+    if (num1 > num2) return 1
+    // v1 < v2
+    if (num1 < num2) return -1
+  }
+
+  // 相等
+  return 0
+}

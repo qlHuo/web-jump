@@ -9,7 +9,7 @@
       ></t-input>
       <t-button class="!ml-2" @click="handleOpenDirectoryConfigDialog('create')">添加</t-button>
     </div>
-    <t-list class="h-full" v-if="directoryList.length" size="small">
+    <t-list class="h-[calc(100%-48px)]" v-if="directoryList.length" size="small">
       <t-list-item
         v-for="item in directoryList"
         :key="item.id"

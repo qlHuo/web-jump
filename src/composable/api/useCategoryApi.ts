@@ -31,11 +31,17 @@ export function useCategoryApi() {
     return categories
   }
 
+  async function getAll() {
+    const categories = await categoryService.getAll()
+    return categories
+  }
+
   return {
     createCategory,
     updateCategory,
     deleteCategory,
     getAllCategoriesById,
     getCategoriesWebsitesByDirectory,
+    getAll,
   }
 }

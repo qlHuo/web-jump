@@ -39,8 +39,15 @@ export default {
     })
   },
 
+  // 获取全部分类
+  getAll: async () => {
+    return handleError(async () => {
+      return await db.categories.toArray()
+    })
+  },
+
   // 查询单个分类详情
-  getById: async (id: string): Promise<Category | undefined> => {
+  getDetailById: async (id: string): Promise<Category | undefined> => {
     return handleError(async () => {
       return await db.categories.get(id)
     }, '获取分类详情')

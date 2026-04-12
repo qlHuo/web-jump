@@ -39,7 +39,7 @@ export async function getFileContent(filePath: string, env: Env): Promise<string
   const branch = env.BRANCH_NAME || 'main'
   try {
     const response = await githubRequest(
-      `/repos/${env.REPO_OWNER}/${env.REPO_NAME}/${filePath}?ref=${branch}`,
+      `/repos/${env.REPO_OWNER}/${env.REPO_NAME}/contents/${filePath}?ref=${branch}`,
       'GET',
       null,
       env
@@ -47,8 +47,13 @@ export async function getFileContent(filePath: string, env: Env): Promise<string
 
     if (response.ok) {
       const data = await response.json()
-      // Cloudflare Workers 不支持 Buffer，使用 atob 解码 base64
-      return atob(data.content.replace(/\s/g, ''))
+      // 1. 移除空白字符
+      const cleanBase64 = data.content.replace(/\s/g, '')
+      // 2. base64 → Uint8Array (原始字节)
+      const binString = atob(cleanBase64)
+      const bytes = Uint8Array.from(binString, m => m.charCodeAt(0))
+      // 3. 按 UTF-8 解码
+      return new TextDecoder('utf-8').decode(bytes)
     }
     return null
   } catch (error) {
@@ -196,23 +201,18 @@ export async function updateMultipleFiles(
  */
 export async function getFullDataset(env: Env) {
   // 并行获取所有文件以提高性能
-  const [directoryContent, categoriesContent, websitesContent] = await Promise.all([
+  const [directoryContent, categoriesContent, websitesContent, versionsContent] = await Promise.all([
     getFileContent(FILE_PATHS.DIRECTORY, env),
     getFileContent(FILE_PATHS.CATEGORIES, env),
     getFileContent(FILE_PATHS.WEBSITES, env),
+    getFileContent(FILE_PATHS.VERSIONS, env),
   ])
 
   // 解析 JSON 内容，如果文件不存在则返回空数组/默认值
-  const directory = directoryContent
-    ? JSON.parse(directoryContent)
-    : {
-        version: '1.0.0',
-        lastUpdated: new Date().toISOString(),
-        totalWebsites: 0,
-      }
-
+  const directory = directoryContent ? JSON.parse(directoryContent) : []
   const categories = categoriesContent ? JSON.parse(categoriesContent) : []
   const websites = websitesContent ? JSON.parse(websitesContent) : []
+  const versions = versionsContent ? JSON.parse(versionsContent) : []
 
   // 更新目录信息
   directory.lastUpdated = new Date().toISOString()
@@ -222,6 +222,7 @@ export async function getFullDataset(env: Env) {
     directory,
     categories,
     websites,
+    versions,
   }
 }
 
@@ -236,6 +237,7 @@ export async function pushFullDataset(
     directory: []
     categories: []
     websites: []
+    versions: []
   },
   env: Env
 ): Promise<boolean> {
@@ -252,7 +254,31 @@ export async function pushFullDataset(
       path: FILE_PATHS.WEBSITES,
       content: JSON.stringify(data.websites, null, 2),
     },
+    {
+      path: FILE_PATHS.VERSIONS,
+      content: JSON.stringify(data.versions, null, 2),
+    },
   ]
 
   return await updateMultipleFiles(filesToUpdate, 'Update website data via API', env)
+}
+
+/**
+ * 获取全部版本
+ * @return 返回全部的版本列表
+ */
+export async function getAllVersions(env: Env): Promise<Array<object>> {
+  const versionsContent = await getFileContent(FILE_PATHS.VERSIONS, env)
+  const versions = versionsContent ? JSON.parse(versionsContent) : []
+  return versions
+}
+
+/**
+ * 获取最新版本
+ * @return 返回最新版本信息
+ */
+export async function getLatestVersion(env: Env): Promise<Array<object>> {
+  const versionsContent = await getFileContent(FILE_PATHS.VERSIONS, env)
+  const versions = versionsContent ? JSON.parse(versionsContent) : []
+  return versions[0] || {}
 }

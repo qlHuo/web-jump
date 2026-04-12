@@ -68,6 +68,11 @@ export default {
       .sortBy('order')
   },
 
+  // 获取所有目录列表
+  getAll: async () => {
+    return await db.directories.orderBy('order').toArray()
+  },
+
   // 查询单个目录详情
   getById: async (id: string): Promise<Directory | undefined> => {
     return handleError(async () => {

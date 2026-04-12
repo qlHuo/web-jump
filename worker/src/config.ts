@@ -20,7 +20,8 @@ export const FILE_PATHS = {
   DIRECTORY: 'data/directory.json',
   CATEGORIES: 'data/categories.json',
   WEBSITES: 'data/websites.json',
+  VERSIONS: 'data/versions.json',
 } as const
 
-// 不验证的接口
-export const NO_AUTH_PATH = ['/api/meta']
+// 需要权限控制的接口
+export const AUTH_PATH = ['/api/push-websites-data']

@@ -47,6 +47,11 @@ export function useWebsiteApi() {
     return data
   }
 
+  async function getAll() {
+    const data = await websiteService.getAll()
+    return data
+  }
+
   return {
     createWebsite,
     updateWebsite,
@@ -55,5 +60,6 @@ export function useWebsiteApi() {
     getAllWebsites,
     getWebsitesByCategoryId,
     getFullWebsitesStructure,
+    getAll,
   }
 }

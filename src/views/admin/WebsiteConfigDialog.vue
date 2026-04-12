@@ -10,6 +10,7 @@
     <t-form :data="formData" :rules="rules" ref="formRef">
       <t-form-item label="网站地址" name="url">
         <t-input v-model="formData.url" placeholder="请输入网站地址"></t-input>
+        <t-button theme="primary" variant="text" :loading="analysisLoading" @click="getMetaData">解析</t-button>
       </t-form-item>
       <t-form-item label="网站名称" name="name">
         <t-input v-model="formData.name" placeholder="请输入网站名称"></t-input>
@@ -35,6 +36,8 @@ import { ref } from 'vue'
 import type { Website } from '@/db/models'
 import { useWebsiteApi } from '@/composable/api'
 import { MessagePlugin } from 'tdesign-vue-next'
+import { isValidURL } from '@/utils'
+import { useWorkerApi } from '@/composable/api'
 
 const props = defineProps<{
   directoryId: string
@@ -49,10 +52,10 @@ const formData = ref<
     order?: number
   }
 >({
-  name: '',
-  url: '',
-  icon: '',
-  description: '',
+  name: '' as string,
+  url: '' as string,
+  icon: '' as string,
+  description: '' as string,
   tags: [],
   isPinned: false,
   directoryId: props.directoryId,
@@ -81,6 +84,7 @@ const rules = ref({
 const formRef = ref()
 const dialogType = ref<'create' | 'edit'>('create')
 const rowItem = ref<Website>()
+const analysisLoading = ref<boolean>(false)
 
 const handleOpen = (type: 'create' | 'edit', item?: Website) => {
   visible.value = true
@@ -156,6 +160,48 @@ const handleConfirm = async () => {
 const handleCancel = (): void => {
   visible.value = false
   formRef.value.reset()
+}
+interface ApiResponse<T> {
+  success?: boolean
+  data?: T
+  message?: string
+}
+
+interface MetaData {
+  title?: string
+  favicon?: string
+  description?: string
+  // 根据实际 API 返回的数据添加其他属性
+}
+
+const getMetaData = () => {
+  const { url } = formData.value
+  if (!isValidURL(url)) {
+    MessagePlugin.error('请输入网站地址')
+    return
+  }
+
+  analysisLoading.value = true
+  useWorkerApi()
+    .getMetaInfoByUrl(url)
+    .then((meta: ApiResponse<MetaData>) => {
+      const { success, data, message } = meta
+      if (success) {
+        formData.value = {
+          ...formData.value,
+          name: data?.title || '',
+          icon: data?.favicon,
+          description: data?.description,
+        }
+      } else {
+        MessagePlugin.error(message || '获取网站信息失败')
+      }
+      analysisLoading.value = false
+    })
+    .catch(() => {
+      MessagePlugin.error('获取网站信息失败')
+      analysisLoading.value = false
+    })
 }
 
 defineExpose({

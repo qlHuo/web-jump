@@ -1,7 +1,7 @@
 // src/services/api.ts
 import { Env, ApiResponse } from '../config'
 import { fetchWebsiteMetadata } from './metadata'
-import { getFullDataset, pushFullDataset } from './github'
+import { getFullDataset, pushFullDataset, getAllVersions, getLatestVersion } from './github'
 
 /**
  * 处理 CORS 预检请求
@@ -103,11 +103,11 @@ export async function handleMetaRequest(url: string): Promise<Response> {
  * @returns 推送结果响应
  */
 export async function handleDataPush(
-  body: { directory: []; categories: []; websites: [] },
+  body: { directory: []; categories: []; websites: []; versions: [] },
   env: Env
 ): Promise<Response> {
   // 验证必需字段
-  const requiredFiles = ['directory', 'categories', 'websites'] as const
+  const requiredFiles = ['directory', 'categories', 'websites', 'versions'] as const
   for (const file of requiredFiles) {
     if (!body[file]) {
       return new Response(
@@ -131,6 +131,7 @@ export async function handleDataPush(
     JSON.stringify(body.directory)
     JSON.stringify(body.categories)
     JSON.stringify(body.websites)
+    JSON.stringify(body.versions)
   } catch (error) {
     return new Response(
       JSON.stringify({
@@ -187,6 +188,44 @@ export async function handleDataFetch(env: Env): Promise<Response> {
 }
 
 /**
+ * @Description 获取最新版本
+ */
+export async function handleLatestVersion(env: Env): Promise<Response> {
+  const responseData = await getLatestVersion(env)
+  return new Response(
+    JSON.stringify({
+      success: true,
+      data: responseData,
+    } satisfies ApiResponse<typeof responseData>),
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Cache-Control': 'no-cache', // 不缓存，确保获取最新数据
+      },
+    }
+  )
+}
+
+// 获取所有版本
+export async function handleAllVersions(env: Env): Promise<Response> {
+  const responseData = await getAllVersions(env)
+  return new Response(
+    JSON.stringify({
+      success: true,
+      data: responseData,
+    } satisfies ApiResponse<typeof responseData>),
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Cache-Control': 'no-cache', // 不缓存，确保获取最新数据
+      },
+    }
+  )
+}
+
+/**
  * 处理 404 错误
  * @returns 404 响应
  */
@@ -194,7 +233,7 @@ export function handleNotFound(): Response {
   return new Response(
     JSON.stringify({
       success: false,
-      message: 'Endpoint not found. Available endpoints: GET /api/meta, POST /api/data, GET /api/data',
+      message: '404 not found.',
     } satisfies ApiResponse),
     {
       status: 404,

@@ -47,3 +47,10 @@ export interface DirectoryWithCategories extends Directory {
 
 /** 完整的三层结构 */
 export type FullWebsiteStructure = DirectoryWithCategories[]
+
+// 版本信息
+export interface Version {
+  id: string
+  version: string
+  createdAt: Date
+}
