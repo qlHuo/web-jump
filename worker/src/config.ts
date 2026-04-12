@@ -17,9 +17,9 @@ export interface ApiResponse<T = unknown> {
 export const GITHUB_API_BASE = 'https://api.github.com'
 export const DEFAULT_BRANCH = 'main'
 export const FILE_PATHS = {
-  DIRECTORY: 'directory.json',
-  CATEGORIES: 'categories.json',
-  WEBSITES: 'websites.json',
+  DIRECTORY: 'data/directory.json',
+  CATEGORIES: 'data/categories.json',
+  WEBSITES: 'data/websites.json',
 } as const
 
 // 不验证的接口

@@ -39,7 +39,7 @@ export async function getFileContent(filePath: string, env: Env): Promise<string
   const branch = env.BRANCH_NAME || 'main'
   try {
     const response = await githubRequest(
-      `/repos/${env.REPO_OWNER}/${env.REPO_NAME}/contents/${filePath}?ref=${branch}`,
+      `/repos/${env.REPO_OWNER}/${env.REPO_NAME}/${filePath}?ref=${branch}`,
       'GET',
       null,
       env
