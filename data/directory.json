@@ -1,0 +1,66 @@
+[
+  {
+    "name": "AI智能",
+    "key": "ai",
+    "id": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "createdAt": "2026-04-07T15:45:30.272Z",
+    "updatedAt": "2026-04-11T08:37:09.729Z",
+    "order": 1
+  },
+  {
+    "name": "常用工具",
+    "key": "tools",
+    "id": "aac9b859-626b-45e7-a4af-9b9a2caf86f4",
+    "createdAt": "2026-04-11T08:37:35.595Z",
+    "updatedAt": "2026-04-11T08:37:35.595Z",
+    "order": 2
+  },
+  {
+    "name": "编程基础",
+    "key": "codebase",
+    "id": "fe443b17-2afd-4a48-b2e6-701f86ed729d",
+    "createdAt": "2026-04-11T09:28:01.464Z",
+    "updatedAt": "2026-04-11T09:29:23.197Z",
+    "order": 3
+  },
+  {
+    "name": "前端方向",
+    "key": "frontend",
+    "id": "06e4b5ce-47e2-4057-8ba4-1901ea4261ba",
+    "createdAt": "2026-04-11T09:29:40.195Z",
+    "updatedAt": "2026-04-11T09:29:40.195Z",
+    "order": 4
+  },
+  {
+    "name": "UI设计",
+    "key": "ui",
+    "id": "20359700-ce75-4aca-b5ec-d3bef7e2c6fa",
+    "createdAt": "2026-04-11T09:32:09.079Z",
+    "updatedAt": "2026-04-11T09:32:09.079Z",
+    "order": 5
+  },
+  {
+    "name": "求职宝典",
+    "key": "job",
+    "id": "ea5b2c7d-a763-41e7-b21f-21d397f6070c",
+    "createdAt": "2026-04-11T09:34:15.981Z",
+    "updatedAt": "2026-04-11T09:34:15.981Z",
+    "order": 6
+  },
+  {
+    "name": "生活服务",
+    "key": "life",
+    "id": "f207e530-4b17-43f4-97f7-ec3240db64fc",
+    "createdAt": "2026-04-11T09:34:59.515Z",
+    "updatedAt": "2026-04-11T09:34:59.515Z",
+    "order": 7
+  },
+  {
+    "name": "休闲娱乐",
+    "key": "entertainment",
+    "id": "8fa7736c-fcca-49f1-a10d-f49184d40e75",
+    "createdAt": "2026-04-11T09:35:53.225Z",
+    "updatedAt": "2026-04-11T09:35:53.225Z",
+    "order": 8
+  }
+]
