@@ -24,7 +24,7 @@
     "categoryId": "f6ead6fe-5e01-4160-b811-840956c66de5",
     "id": "2f54d630-91bb-4a9e-afc8-d0651f5ce100",
     "createdAt": "2026-04-11T09:10:11.870Z",
-    "updatedAt": "2026-04-11T09:10:11.870Z",
+    "updatedAt": "2026-04-12T14:27:45.397Z",
     "order": 2
   },
   {
@@ -42,20 +42,6 @@
     "order": 7
   },
   {
-    "name": "iconfont-阿里巴巴矢量图标库",
-    "url": "https://www.iconfont.cn/",
-    "icon": "https://img.alicdn.com/imgextra/i4/O1CN01Z5paLz1O0zuCC7osS_!!6000000001644-55-tps-83-82.svg",
-    "description": "iconfont-国内功能很强大且图标内容很丰富的矢量图标库，提供矢量图标下载、在线存储、格式转换等功能。阿里巴巴体验团队倾力打造，设计和前端开发的便捷工具",
-    "tags": [],
-    "isPinned": false,
-    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
-    "categoryId": "f6ead6fe-5e01-4160-b811-840956c66de5",
-    "id": "471685f0-e587-4f22-8eb4-7ba30f252bb6",
-    "createdAt": "2026-04-12T13:56:53.493Z",
-    "updatedAt": "2026-04-12T13:56:53.493Z",
-    "order": 14
-  },
-  {
     "name": "千问",
     "url": "https://www.qianwen.com/",
     "icon": "",
@@ -68,6 +54,20 @@
     "createdAt": "2026-04-11T09:48:02.002Z",
     "updatedAt": "2026-04-11T09:48:02.002Z",
     "order": 11
+  },
+  {
+    "name": "文心一言",
+    "url": "https://yiyan.baidu.com/",
+    "icon": "https://eb-static.cdn.bcebos.com/logo/favicon.ico",
+    "description": "文心一言既是你的智能伙伴，可以陪你聊天、回答问题、画图识图；也是你的AI助手，可以提供灵感、撰写文案、阅读文档、智能翻译，帮你高效完成工作和学习任务。",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "f6ead6fe-5e01-4160-b811-840956c66de5",
+    "id": "58e5421b-6928-4823-b249-8d2736576e70",
+    "createdAt": "2026-04-12T14:36:04.187Z",
+    "updatedAt": "2026-04-12T14:36:04.187Z",
+    "order": 15
   },
   {
     "name": "美图设计室",
@@ -98,6 +98,20 @@
     "order": 13
   },
   {
+    "name": "元宝-体验DeepSeek全新版-高效AI助手",
+    "url": "https://yuanbao.tencent.com/chat/",
+    "icon": "https://static.yuanbao.tencent.com/m/yuanbao-web/favicon_new@32.png",
+    "description": "元宝是腾讯推出的AI助手，提供DeepSeek+智能新体验，支持联网搜索公众号、视频号等多端设备。前往下载中心获取元宝软件，你的忠实AI助手。",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "f6ead6fe-5e01-4160-b811-840956c66de5",
+    "id": "881280b1-af65-4b32-8277-1ee4a47f2b24",
+    "createdAt": "2026-04-12T14:35:14.449Z",
+    "updatedAt": "2026-04-12T14:35:14.449Z",
+    "order": 14
+  },
+  {
     "name": "111",
     "url": "https://www.qianwen.com/",
     "icon": "",
@@ -126,7 +140,7 @@
     "order": 3
   },
   {
-    "name": "DeepSeek",
+    "name": "DeepSeek | 深度求索",
     "url": "https://www.deepseek.com/",
     "icon": "https://www.deepseek.com/favicon.ico",
     "description": "深度求索（DeepSeek）助力编程代码开发、创意写作、文件处理等任务，支持文件上传及长文本对话，随时为您提供高效的AI支持。",
@@ -136,7 +150,7 @@
     "categoryId": "f6ead6fe-5e01-4160-b811-840956c66de5",
     "id": "a2b14af0-4045-4759-a043-32052047bb0b",
     "createdAt": "2026-04-11T09:04:56.633Z",
-    "updatedAt": "2026-04-11T09:04:56.633Z",
+    "updatedAt": "2026-04-12T14:27:31.774Z",
     "order": 1
   },
   {
@@ -168,7 +182,7 @@
     "order": 6
   },
   {
-    "name": "千问",
+    "name": "千问-Qwen最新模型体验-通义千问",
     "url": "https://www.qianwen.com/",
     "icon": "https://img.alicdn.com/imgextra/i4/O1CN01uar8u91DHWktnF2fl_!!6000000000191-2-tps-110-110.png",
     "description": "千问是阿里通义千问大模型打造的AI对话助手，通义千问支持问答、写作、代码、翻译、录音、PPT创作、文档处理、音视频速读。",
@@ -178,7 +192,7 @@
     "categoryId": "f6ead6fe-5e01-4160-b811-840956c66de5",
     "id": "ea12ad87-f6df-4a1b-b2c5-26ad4338e365",
     "createdAt": "2026-04-11T09:01:05.847Z",
-    "updatedAt": "2026-04-11T09:01:05.847Z",
+    "updatedAt": "2026-04-12T14:26:58.178Z",
     "order": 0
   },
   {
