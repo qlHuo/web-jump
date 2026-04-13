@@ -1,7 +1,7 @@
 <template>
-  <div class="h-full w-32 p-4" v-bind="$attrs">
+  <div v-if="props.directoryList.length" class="h-full w-32 p-4" v-bind="$attrs">
     <div
-      v-for="item in directoryList"
+      v-for="item in props.directoryList"
       :key="item.id"
       class="flex items-center cursor-pointer text-[var(--td-text-color-primary)] hover:bg-white hover:text-[var(--td-brand-color-7)] p-2 rounded mb-1 text-sm"
       @click="handleDirectoryClick(item)"
@@ -12,28 +12,13 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
 import type { Directory } from '@/db/models'
-import { useDirectoryApi } from '@/composable/api'
-
+const props = defineProps<{ directoryList: Directory[] }>()
 const emit = defineEmits(['click'])
-const directoryList = ref<Directory[]>([])
 
 const handleDirectoryClick = (item: Directory) => {
   emit('click', item)
 }
-
-const getDirectoryList = () => {
-  useDirectoryApi()
-    .getDirectoryList({})
-    .then(res => {
-      directoryList.value = res || []
-    })
-}
-
-onMounted(() => {
-  getDirectoryList()
-})
 </script>
 
 <style scoped lang="less"></style>

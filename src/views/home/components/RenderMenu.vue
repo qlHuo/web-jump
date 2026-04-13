@@ -2,6 +2,7 @@
   <!-- 移动端菜单 -->
   <Transition name="slide">
     <BaseMenu
+      :directory-list="props.directoryList"
       v-if="menuStore.showMenu"
       class="md:hidden fixed left-0 top-0 z-11 bg-white shadow-lg"
       @click="handleClickItem"
@@ -18,7 +19,11 @@
   </Transition>
 
   <!-- web端菜单 -->
-  <BaseMenu class="hidden md:block bg-white rounded-xl sticky top-19" @click="handleClickItem" />
+  <BaseMenu
+    :directory-list="props.directoryList"
+    class="hidden md:block bg-white rounded-xl sticky top-19"
+    @click="handleClickItem"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -27,7 +32,7 @@ import { useMenuStore } from '@/stores/menuStore.ts'
 import BaseMenu from './BaseMenu.vue'
 
 const menuStore = useMenuStore()
-
+const props = defineProps<{ directoryList: Directory[] }>()
 const emit = defineEmits(['click'])
 const handleClickItem = (item: Directory) => {
   emit('click', item)

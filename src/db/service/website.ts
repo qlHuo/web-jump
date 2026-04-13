@@ -1,5 +1,12 @@
 import db from '@/db'
-import type { Website, FullWebsiteStructure, CategoryWithWebsites, DirectoryWithCategories } from '@/db/models'
+import type {
+  Website,
+  FullWebsiteStructure,
+  CategoryWithWebsites,
+  DirectoryWithCategories,
+  Directory,
+  Category,
+} from '@/db/models'
 import { handleError } from '@/db/utils/handleError'
 import { uuid } from '@/utils/index'
 // 获取下一个 order 值
@@ -230,5 +237,19 @@ export default {
         categories: categoriesWithWebsites,
       }
     }, '获取指定目录结构')
+  },
+
+  // 同步所有数据到本地数据库
+  async syncAllDataToLocalDB(directories: Directory[], categories: Category[], websites: Website[]) {
+    return handleError(async () => {
+      // 'rw' 表示读写权限，后面跟上涉及的所有表
+      await db.transaction('rw', db.directories, db.categories, db.websites, async () => {
+        // 在事务内部执行批量操作
+        await db.directories.bulkPut(directories)
+        await db.categories.bulkPut(categories)
+        await db.websites.bulkPut(websites)
+        // 如果这里发生错误，上面两个操作都会回滚
+      })
+    }, '同步远程数据到本地')
   },
 }

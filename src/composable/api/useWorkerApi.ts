@@ -1,8 +1,15 @@
 import { isValidURL } from '@/utils'
-import type { Version } from '@/db/models'
+import type { Version, FullWebsiteStructure, Directory, Category, Website } from '@/db/models'
 import { MessagePlugin } from 'tdesign-vue-next'
 
 const BASE_URL = 'https://website-manager-api.qlhuo.workers.dev'
+
+// 定义接口响应数据
+interface responseData<T> {
+  success: boolean
+  data: T
+  message?: string
+}
 
 export function useWorkerApi() {
   // 根据URL获取网站元信息
@@ -33,33 +40,23 @@ export function useWorkerApi() {
    * @param { Object } { directory: [], categories: [], websites: [], versions: [] }
    * @return { Boolean } 是否推送成功
    */
-  async function pushWebsiteDataToGithub(auth: string, data: object): Promise<{ success: boolean; message: string }> {
-    try {
-      const response = await fetch(`${BASE_URL}/api/push-websites-data`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${auth}`,
-        },
-        body: JSON.stringify(data),
-      })
+  async function pushWebsiteDataToGithub(auth: string, data: object): Promise<responseData<boolean>> {
+    const response = await fetch(`${BASE_URL}/api/push-websites-data`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${auth}`,
+      },
+      body: JSON.stringify(data),
+    })
 
-      if (!response.ok) {
-        const errorText = await response.text()
-        throw new Error(`API Error (${response.status}): ${errorText}`)
-      }
-
-      const result = await response.json()
-      // 确保 API 响应格式符合期望
-      return result as { success: boolean; message: string }
-    } catch (error) {
-      // 统一错误处理，返回期望的格式
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred'
-      return {
-        success: false,
-        message: errorMessage,
-      }
+    if (!response.ok) {
+      const errorText = await response.text()
+      throw new Error(`API Error (${response.status}): ${errorText}`)
     }
+
+    const result = await response.json()
+    return result
   }
 
   /**
@@ -68,7 +65,9 @@ export function useWorkerApi() {
    * @Date 2026/04/12 16:32:14
    * @return { Array } 远程网站数据
    */
-  async function getRemoteWebsiteData(): Promise<Array<object>> {
+  async function getRemoteWebsiteData(): Promise<
+    responseData<{ directory: Directory[]; categories: Category[]; websites: Website[]; versions: Version[] }>
+  > {
     const response = await fetch(`${BASE_URL}/api/get-websites-data`, {
       method: 'GET',
       headers: {
@@ -80,7 +79,8 @@ export function useWorkerApi() {
       const errorText = await response.text()
       throw new Error(`API Error (${response.status}): ${errorText}`)
     }
-    return response.json()
+    const result = await response.json()
+    return result
   }
 
   /**
@@ -89,7 +89,7 @@ export function useWorkerApi() {
    * @Date 2026/04/12 16:32:14
    * @return { Object } 最新版本数据
    */
-  async function getRemoteLatestVersion(): Promise<object> {
+  async function getRemoteLatestVersion(): Promise<responseData<Version>> {
     const response = await fetch(`${BASE_URL}/api/get-latest-version`, {
       method: 'GET',
       headers: {
@@ -110,7 +110,7 @@ export function useWorkerApi() {
    * @Date 2026/04/12 16:32:14
    * @return { Array } 最新版本数据
    */
-  async function getRemoteAllVersions(): Promise<{ success: boolean; data: Version[]; message?: string }> {
+  async function getRemoteAllVersions(): Promise<responseData<Version[]>> {
     const response = await fetch(`${BASE_URL}/api/get-all-versions`, {
       method: 'GET',
       headers: {

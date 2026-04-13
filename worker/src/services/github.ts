@@ -214,9 +214,9 @@ export async function getFullDataset(env: Env) {
   const websites = websitesContent ? JSON.parse(websitesContent) : []
   const versions = versionsContent ? JSON.parse(versionsContent) : []
 
-  // 更新目录信息
-  directory.lastUpdated = new Date().toISOString()
-  directory.totalWebsites = websites.length
+  // // 更新目录信息
+  // directory.lastUpdated = new Date().toISOString()
+  // directory.totalWebsites = websites.length
 
   return {
     directory,
