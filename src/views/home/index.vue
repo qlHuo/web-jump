@@ -48,7 +48,7 @@ const handleSyncLogic = async () => {
     const { directory, categories, websites, versions } = data
     // 更新版本号并同步数据到本地数据库
     localStorage.setItem('currentVesion', JSON.stringify(versions?.[0]))
-    useWebsiteApi().syncAllDataToLocalDB(directory, categories, websites)
+    await useWebsiteApi().syncAllDataToLocalDB(directory, categories, websites)
   } else {
     console.error('getRemoteWebsitesData error', message)
   }
@@ -68,6 +68,7 @@ const getFullData = async () => {
   useWebsiteApi()
     .getFullWebsitesStructure()
     .then(res => {
+      console.log('getFullWebsitesStructure res', res)
       fullData.value = res || []
     })
 }
