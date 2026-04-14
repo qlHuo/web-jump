@@ -1,8 +1,9 @@
 import { isValidURL } from '@/utils'
-import type { Version, FullWebsiteStructure, Directory, Category, Website } from '@/db/models'
+import type { Version, Directory, Category, Website } from '@/db/models'
 import { MessagePlugin } from 'tdesign-vue-next'
 
-const BASE_URL = 'https://website-manager-api.qlhuo.workers.dev'
+// const BASE_URL = 'https://website-manager-api.qlhuo.workers.dev'
+const BASE_URL = 'https://websites-api.holyer.site'
 
 // 定义接口响应数据
 interface responseData<T> {

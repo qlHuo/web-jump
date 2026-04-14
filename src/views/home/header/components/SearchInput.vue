@@ -29,25 +29,14 @@
                   class="h-18 w-18 flex flex-col items-center gap-2 cursor-pointer hover:bg-[var(--td-gray-color-2)] p-2 rounded"
                   @click="handleSearchEngineSelect(engine)"
                 >
-                  <img
-                    :src="engine.icon"
-                    alt=""
-                    class="w-8 h-8 rounded-sm object-cover"
-                  />
+                  <img :src="engine.icon" alt="" class="w-8 h-8 rounded-sm object-cover" />
                   <span>{{ engine.name }}</span>
                 </div>
               </div>
             </div>
           </template>
-          <div
-            class="h-full flex justify-between items-center pl-2 pr-2 cursor-pointer"
-            @click="visible = !visible"
-          >
-            <img
-              :src="selectedEngine.icon"
-              alt=""
-              class="w-6 h-6 rounded-sm object-cover mr-1"
-            />
+          <div class="h-full flex justify-between items-center pl-2 pr-2 cursor-pointer" @click="visible = !visible">
+            <img :src="selectedEngine.icon" alt="" class="w-6 h-6 rounded-sm object-cover mr-1" />
             <HiIcon name="icon-arrow-down" size="12px" class="text-gray-400" />
           </div>
         </t-popup>
@@ -72,8 +61,8 @@ const searchEngines = ref<SearchEngine[]>([
   {
     name: '本站',
     value: 'local',
-    icon: 'http://localhost:5173/src/assets/logo.svg',
-    url: 'https://localhost:5173/?q=',
+    icon: 'https://websites.holyer.site/assets/logo-D4pi2lMS.svg',
+    url: 'http://websites.holyer.site/search?q=',
     placeholder: '搜索本站内容...',
   },
   {
