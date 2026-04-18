@@ -11,33 +11,103 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { onMounted, ref, version } from 'vue'
-import { useDirectoryApi, useWebsiteApi, useWorkerApi } from '@/composable/api'
+<script lang="tsx" setup>
+import { onMounted, ref } from 'vue'
+import { useDirectoryApi, useGlobalApi, useWebsiteApi, useWorkerApi } from '@/composable/api'
 import type { Directory, FullWebsiteStructure } from '@/db/models'
 import PageHeader from './header/index.vue'
 import RenderMenu from './components/RenderMenu.vue'
 import WebsiteCardList from './components/WebsiteCardList.vue'
+import NotificationPlugin from 'tdesign-vue-next/es/notification/plugin'
+import type { NotificationInstance } from 'tdesign-vue-next'
 
 const fullData = ref<FullWebsiteStructure>([])
 const directoryList = ref<Directory[]>([])
 const loading = ref<boolean>(false)
+const notification = ref<Promise<NotificationInstance>>()
+
+const handleOpenNotification = () => {
+  if (notification.value) return false
+  notification.value = NotificationPlugin.info({
+    title: '检测到数据有更新，是否同步远程数据？',
+    content: '此操作将增量更新本地网站，不会删除您本地的数据，请确认是否更新！',
+    placement: 'bottom-right',
+    duration: 0,
+    footer: () => {
+      return (
+        <div class="flex justify-end">
+          <t-button theme="default" variant="text" onClick={handleCloseNotification}>
+            取消
+          </t-button>
+          <t-button theme="primary" variant="text" onClick={() => handleSyncLocalData('notice')}>
+            更新
+          </t-button>
+        </div>
+      )
+    },
+  })
+}
+
+// 关闭notice弹窗
+const handleCloseNotification = async () => {
+  const notificationInstance = (await notification.value) as NotificationInstance
+  notificationInstance?.close()
+}
+
+// 同步远程数据到本地
+const handleSyncLocalData = async (type?: string) => {
+  if (type === 'notice') {
+    await handleCloseNotification()
+  }
+  await handleSyncLogic()
+  await getDirectoryList()
+  await getFullData()
+}
 
 // 同步远程数据到本地
 const syncRemoteDataToLocalDB = async () => {
-  const { version: localVersion } = localStorage.getItem('currentVesion')
-    ? JSON.parse(localStorage.getItem('currentVesion')!)
-    : {}
-  const { success, data, message } = await useWorkerApi().getRemoteLatestVersion()
-  if (success) {
-    const remoteVersion = data.version
-    if (localVersion && remoteVersion === localVersion) {
-      console.log('数据已是最新版本，无需更新')
+  try {
+    // 检查相关表是否有数据
+    const hasTableData = await useGlobalApi().getTablesHasData(['directories', 'categories', 'websites'])
+    console.log('hasTableData:', hasTableData)
+
+    // 安全获取本地版本号
+    let localVersion: string | null = null
+    try {
+      const storedVersion = localStorage.getItem('currentVersion')
+      if (storedVersion) {
+        const parsed = JSON.parse(storedVersion)
+        localVersion = parsed.version ?? null
+      }
+    } catch (error) {
+      console.warn('解析本地版本号失败:', error)
+      localVersion = null
+    }
+
+    // 获取远程最新版本信息
+    const { success, data, message } = await useWorkerApi().getRemoteLatestVersion()
+    if (!success) {
+      console.error('获取远程最新版本失败:', message)
       return
     }
-    await handleSyncLogic()
-  } else {
-    console.error('getRemoteLatestVersion error', message)
+
+    const remoteVersion = data.version
+    // 判断是否需要同步
+    const isVersionMatch = localVersion && remoteVersion === localVersion
+    console.log('isVersionMatch && hasTableData', isVersionMatch, hasTableData, isVersionMatch && hasTableData)
+    // 版本一致或本地已有数据，无需同步
+    if (isVersionMatch && hasTableData) return
+
+    // 本地无数据，直接同步
+    if (!hasTableData) {
+      await handleSyncLocalData()
+      return
+    }
+
+    // 本地有数据且版本不一致，提示用户是否同步
+    handleOpenNotification()
+  } catch (error) {
+    console.error('同步远程数据到本地数据库过程中发生错误:', error)
   }
 }
 
@@ -47,7 +117,7 @@ const handleSyncLogic = async () => {
   if (success) {
     const { directory, categories, websites, versions } = data
     // 更新版本号并同步数据到本地数据库
-    localStorage.setItem('currentVesion', JSON.stringify(versions?.[0]))
+    localStorage.setItem('currentVersion', JSON.stringify(versions?.[0]))
     await useWebsiteApi().syncAllDataToLocalDB(directory, categories, websites)
   } else {
     console.error('getRemoteWebsitesData error', message)
@@ -68,17 +138,14 @@ const getFullData = async () => {
   useWebsiteApi()
     .getFullWebsitesStructure()
     .then(res => {
-      console.log('getFullWebsitesStructure res', res)
       fullData.value = res || []
     })
 }
 
 onMounted(async () => {
-  loading.value = true
-  await syncRemoteDataToLocalDB()
   await getDirectoryList()
   await getFullData()
-  loading.value = false
+  await syncRemoteDataToLocalDB()
 })
 
 // 菜单点击事件处理函数
