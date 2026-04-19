@@ -10,11 +10,16 @@
       ]"
     >
       <div class="flex items-center gap-2">
-        <img class="w-6 h-6" :src="logo" alt="Web Jump Logo" />
+        <t-image class="w-6 h-6 !bg-transparent" :src="logo" alt="Web Jump Logo" />
         <h1 class="text-lg font-bold">Hi 导航</h1>
       </div>
-      <div class="md:hidden w-7 h-7 cursor-pointer" @click="handleToggleMenu">
-        <HiIcon name="icon-ego-menu" size="20px" />
+      <div class="flex gap-2">
+        <div v-show="isScrolled" class="w-7 h-7 cursor-pointer text-center" @click="bgSearch = true">
+          <HiIcon name="icon-icon_searh" size="20px" />
+        </div>
+        <div class="md:hidden w-7 h-7 cursor-pointer text-center" @click="handleToggleMenu">
+          <HiIcon name="icon-ego-menu" size="20px" />
+        </div>
       </div>
     </div>
     <div class="h-full w-full">
@@ -29,17 +34,27 @@
         <SearchInput />
       </div>
     </div>
+
+    <template v-if="bgSearch">
+      <div
+        class="fixed top-0 left-0 bottom-0 right-0 w-full h-full bg-black opacity-60 z-100"
+        @click="bgSearch = false"
+      ></div>
+      <SearchInput class="fixed left-10 right-10 z-101 !w-[calc(100%-80px)]" />
+    </template>
   </header>
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue'
 import logo from '@/assets/logo.svg'
 import SearchInput from './components/SearchInput.vue'
 import { useScroll } from '@/composable/useScroll'
 import { useMenuStore } from '@/stores/menuStore.ts'
 
-const { isScrolled } = useScroll(50)
+const { isScrolled } = useScroll(60)
 const menuStore = useMenuStore()
+const bgSearch = ref(false)
 
 const handleToggleMenu = () => {
   menuStore.toggleMenu()

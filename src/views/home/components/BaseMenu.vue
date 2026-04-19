@@ -3,7 +3,7 @@
     <div
       v-for="item in props.directoryList"
       :key="item.id"
-      class="flex items-center cursor-pointer text-[var(--td-text-color-primary)] hover:bg-white hover:text-[var(--td-brand-color-7)] p-2 rounded mb-1 text-sm"
+      class="flex items-center cursor-pointer text-[var(--td-text-color-primary)] hover:bg-white hover:text-[var(--td-brand-color)] p-2 rounded mb-1 text-sm"
       @click="handleDirectoryClick(item)"
     >
       <span class="truncate ml-2">{{ item.name }}</span>

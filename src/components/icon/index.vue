@@ -1,5 +1,5 @@
 <template>
-  <IconFont :name="name" :size="size" :style="style" url="//at.alicdn.com/t/c/font_5154341_aeyke8er3.css" />
+  <IconFont :name="name" :size="size" :style="style" url="//at.alicdn.com/t/c/font_5154341_6qvbmhxo1pa.css" />
 </template>
 
 <script lang="ts" setup>

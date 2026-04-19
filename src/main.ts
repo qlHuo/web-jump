@@ -1,8 +1,8 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
-import './assets/index.css'
 import 'tdesign-vue-next/es/style/index.css'
+import './assets/index.css'
 
 // 全局组件注册
 import registerGlobalComponents from '@/components/index'

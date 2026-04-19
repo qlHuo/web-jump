@@ -14,6 +14,16 @@ const router = createRouter({
       name: 'admin',
       component: () => import('@/views/admin/index.vue'),
     },
+    {
+      path: '/404',
+      name: 'NotFound',
+      component: () => import('@/views/error/404.vue'),
+    },
+    // ⭐️ 通配符路由
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/404', // 不存在的路由重定向到404
+    },
   ],
 })
 

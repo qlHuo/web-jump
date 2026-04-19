@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full bg-linear-to-bl">
+  <div class="home h-full">
     <PageHeader />
     <div class="container h-[calc(100%-200px)] flex m-auto mt-4">
       <t-loading fullscreen :loading="loading"></t-loading>
@@ -8,6 +8,14 @@
         <WebsiteCardList v-for="item in fullData" :key="item.key" :data="item" :id="item.key" class="scroll-mt-19" />
       </div>
     </div>
+    <t-back-top
+      shape="circle"
+      size="small"
+      theme="primary"
+      :visible-height="200"
+      :offset="[20, 0]"
+      class="fixed !bottom-6 right-6 z-10"
+    ></t-back-top>
   </div>
 </template>
 
@@ -15,11 +23,11 @@
 import { onMounted, ref } from 'vue'
 import { useDirectoryApi, useGlobalApi, useWebsiteApi, useWorkerApi } from '@/composable/api'
 import type { Directory, FullWebsiteStructure } from '@/db/models'
+import type { NotificationInstance } from 'tdesign-vue-next'
 import PageHeader from './header/index.vue'
 import RenderMenu from './components/RenderMenu.vue'
 import WebsiteCardList from './components/WebsiteCardList.vue'
 import NotificationPlugin from 'tdesign-vue-next/es/notification/plugin'
-import type { NotificationInstance } from 'tdesign-vue-next'
 
 const fullData = ref<FullWebsiteStructure>([])
 const directoryList = ref<Directory[]>([])
@@ -56,12 +64,13 @@ const handleCloseNotification = async () => {
 
 // 同步远程数据到本地
 const handleSyncLocalData = async (type?: string) => {
-  if (type === 'notice') {
-    await handleCloseNotification()
-  }
-  await handleSyncLogic()
+  type === 'notice' && handleCloseNotification()
+  loading.value = true
+  // 先同步远程数据到本地数据库
+  await fetchSyncRemoteData()
   await getDirectoryList()
   await getFullData()
+  loading.value = false
 }
 
 // 同步远程数据到本地
@@ -69,7 +78,6 @@ const syncRemoteDataToLocalDB = async () => {
   try {
     // 检查相关表是否有数据
     const hasTableData = await useGlobalApi().getTablesHasData(['directories', 'categories', 'websites'])
-    console.log('hasTableData:', hasTableData)
 
     // 安全获取本地版本号
     let localVersion: string | null = null
@@ -94,7 +102,6 @@ const syncRemoteDataToLocalDB = async () => {
     const remoteVersion = data.version
     // 判断是否需要同步
     const isVersionMatch = localVersion && remoteVersion === localVersion
-    console.log('isVersionMatch && hasTableData', isVersionMatch, hasTableData, isVersionMatch && hasTableData)
     // 版本一致或本地已有数据，无需同步
     if (isVersionMatch && hasTableData) return
 
@@ -111,8 +118,8 @@ const syncRemoteDataToLocalDB = async () => {
   }
 }
 
-// 同步数据的逻辑
-const handleSyncLogic = async () => {
+// 获取远程数据并同步
+const fetchSyncRemoteData = async () => {
   const { data, success, message } = await useWorkerApi().getRemoteWebsiteData()
   if (success) {
     const { directory, categories, websites, versions } = data
@@ -143,8 +150,10 @@ const getFullData = async () => {
 }
 
 onMounted(async () => {
+  // 先获取本地数据
   await getDirectoryList()
   await getFullData()
+  // 同步数据逻辑
   await syncRemoteDataToLocalDB()
 })
 
@@ -158,5 +167,3 @@ const handleClickMenuItem = (item: Directory) => {
   targetElement?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 </script>
-
-<style></style>
