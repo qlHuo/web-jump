@@ -14,6 +14,20 @@
     "order": 20
   },
   {
+    "name": "Kimi AI 官网 - K2.5 上线",
+    "url": "https://www.kimi.com/",
+    "icon": "https://www.kimi.com/favicon.ico",
+    "description": "月之暗面 (Moonshot AI) 旗下 Kimi K2.5 模型发布！引领开源视觉编程，同步开启 Agent 集群预览版。从像素级网页复刻到专家级办公交付，助你高效搞定复杂任务。立即访问 Kimi 官网体验。",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "f6ead6fe-5e01-4160-b811-840956c66de5",
+    "id": "05061def-a146-49d3-a3ee-3b965b640032",
+    "createdAt": "2026-04-19T10:41:56.665Z",
+    "updatedAt": "2026-04-19T10:41:56.665Z",
+    "order": 55
+  },
+  {
     "name": "PingCode",
     "url": "https://pingcode.com/",
     "icon": "https://pingcode.com/favicon.ico?v=6.2.18",
@@ -40,6 +54,34 @@
     "createdAt": "2026-04-11T09:17:59.442Z",
     "updatedAt": "2026-04-11T09:17:59.442Z",
     "order": 4
+  },
+  {
+    "name": "QClaw - 微信远程办公 AI 助手 | 腾讯出品",
+    "url": "https://qclaw.qq.com/",
+    "icon": "https://cdn.qclaw.qq.com/qclaw/website/image/favicon.png",
+    "description": "QClaw 是腾讯推出的个人AI助手，可微信远程整理文件、执行复杂任务、无需编程基础，适配办公 / 创作 / 开发等多场景，丰富技能生态越用越懂你。",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "2099a287-1f54-4462-8e82-115e7f6ae719",
+    "id": "1601dc24-2be6-47eb-b49b-92d4cdea0a7d",
+    "createdAt": "2026-04-19T10:30:03.860Z",
+    "updatedAt": "2026-04-19T10:30:03.860Z",
+    "order": 43
+  },
+  {
+    "name": "腾讯云代码助手 CodeBuddy - AI 时代的智能编程伙伴",
+    "url": "https://www.codebuddy.cn/home/",
+    "icon": "https://acc-1258344699.cos.accelerate.myqcloud.com/web/website/510f885a40f798e65489e35dc29e6c95e070a77c/assets/logo.svg",
+    "description": "腾讯云代码助手CodeBuddy，是一款辅助编码工具，基于混元代码大模型，提供技术对话、代码补全、代码诊断和优化等能力。为你生成优质代码，帮你解决技术难题，提升编码效率。",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "2099a287-1f54-4462-8e82-115e7f6ae719",
+    "id": "17bf9e98-92b0-4007-9b82-ef9ae4243f9d",
+    "createdAt": "2026-04-19T10:31:39.039Z",
+    "updatedAt": "2026-04-19T10:31:39.039Z",
+    "order": 44
   },
   {
     "name": "labuladong的算法笔记",
@@ -70,6 +112,34 @@
     "order": 2
   },
   {
+    "name": "星火飞码 iFlyCode",
+    "url": "https://iflycode.xfyun.cn/index",
+    "icon": "https://iflycode.xfyun.cn/icon.svg",
+    "description": "星火飞码iFlyCode懂你的智能编程助手",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "2099a287-1f54-4462-8e82-115e7f6ae719",
+    "id": "341372bc-3d6d-4a6a-84ca-4a2602f79dc1",
+    "createdAt": "2026-04-19T10:28:17.562Z",
+    "updatedAt": "2026-04-19T10:28:17.562Z",
+    "order": 40
+  },
+  {
+    "name": "绘蛙AI_AI电商营销内容创作平台",
+    "url": "https://www.ihuiwa.com/",
+    "icon": "https://img.alicdn.com/imgextra/i3/O1CN01Lueobx1rbIHzzyArx_!!6000000005649-2-tps-128-128.png",
+    "description": "绘蛙-是一款功能强大，简洁好用的智能图片、文案创作平台，并且拥有海量虚拟模特可选择。在绘蛙，你可训练自己的商品模型和模特模型，可通过AI生成商拍图和种草文案，可以创作小红书图片,电商商品主图,跨境电商主图,小红书种草文案,穿搭文案，视频口播文案，可在线一键美图,输入口令修改图片内容,一键换装,一键去水印,一键智能消除，一键换脸，一键高清修复图片。",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "1675b540-20d2-4297-a69d-f49f7d803ebc",
+    "id": "35b9032c-dce7-4727-b60c-b21b7b85b4ac",
+    "createdAt": "2026-04-19T10:33:44.022Z",
+    "updatedAt": "2026-04-19T10:33:44.022Z",
+    "order": 47
+  },
+  {
     "name": "有道云笔记｜亿万用户的选择",
     "url": "https://note.youdao.com/",
     "icon": "https://note.youdao.com/favicon.ico",
@@ -96,6 +166,20 @@
     "createdAt": "2026-04-14T15:47:19.033Z",
     "updatedAt": "2026-04-14T15:47:19.033Z",
     "order": 17
+  },
+  {
+    "name": "商汤秒画SenseMirage – AI作画，有手就行！还是免费的！",
+    "url": "https://miaohua.sensetime.com/",
+    "icon": "https://bkmksh.oss-cn-shanghai.aliyuncs.com/assets1/homepage/m-favicon.png",
+    "description": "会打字就会用的AI绘画神器，完美支持中文提示词，支持摄影、可爱、精致、赛博朋克、电影等超多风格，人人都可以是插画师！快速创作二次元、写实向等多种风格小姐姐！",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "1675b540-20d2-4297-a69d-f49f7d803ebc",
+    "id": "4ee5395f-5df2-4218-a089-88257fa8b1bc",
+    "createdAt": "2026-04-19T10:34:51.593Z",
+    "updatedAt": "2026-04-19T10:34:51.593Z",
+    "order": 48
   },
   {
     "name": "文心一言",
@@ -140,6 +224,20 @@
     "order": 34
   },
   {
+    "name": "稿定设计-在线设计平台_海报设计_图片设计_视频编辑_设计协作",
+    "url": "https://www.gaoding.com/creation",
+    "icon": "https://www.gaoding.com/favicon.ico",
+    "description": "海量设计模板加持不会PS也能轻松搞定设计，在线设计海报、简历、PPT、名片、宣传单、邀请函、Logo等多种设计需求场景，3秒抠图、批量套版、AI辅助设计实用便捷。海量正版授权资源，商用无忧。",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "1675b540-20d2-4297-a69d-f49f7d803ebc",
+    "id": "602666ea-3ab9-4403-972a-1e538352ba7b",
+    "createdAt": "2026-04-19T10:38:31.224Z",
+    "updatedAt": "2026-04-19T10:38:31.224Z",
+    "order": 49
+  },
+  {
     "name": "美图设计室",
     "url": "https://www.designkit.cn/",
     "icon": "https://www.designkit.cn/favicon.ico",
@@ -168,6 +266,34 @@
     "order": 32
   },
   {
+    "name": "问小白： 探索世界的AI搭子",
+    "url": "https://www.wenxiaobai.com/",
+    "icon": "https://wy-static.wenxiaobai.com/wenxiaobai-web/production/3.16.9/_next/static/media/new_favicon.6d31cfe4.png",
+    "description": "问小白 - 主动型AI助手，探索世界的AI搭子。顶级大模型免费使用，Deepseek R1/V3/V3.1、问小白5对标Openai-GPT5，支持AI联网搜索、AI学术搜索，Deep Research，AI图片编辑和生成，AI 智能体情感陪伴",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "f6ead6fe-5e01-4160-b811-840956c66de5",
+    "id": "6ffe9ae3-9a34-4d4c-9762-226490598190",
+    "createdAt": "2026-04-19T10:21:07.642Z",
+    "updatedAt": "2026-04-19T10:21:07.642Z",
+    "order": 36
+  },
+  {
+    "name": "Meituan CatPaw - AI编程Agent | 智能驱动编码，高效加速交付",
+    "url": "https://catpaw.meituan.com/",
+    "icon": "https://s3.meituan.net/static-prod01/com.sankuai.catpaw.web.fe/logo.png",
+    "description": "Meituan CatPaw是一款智能AI编程Agent，以IDE形态集成，提供高效的代码补全、代码生成等功能，帮助开发者提升编码效率，加速项目交付。",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "2099a287-1f54-4462-8e82-115e7f6ae719",
+    "id": "72d2f38f-0717-4c2c-ac56-38c8f76a5c66",
+    "createdAt": "2026-04-19T10:40:06.648Z",
+    "updatedAt": "2026-04-19T10:40:06.648Z",
+    "order": 53
+  },
+  {
     "name": "TAPD-敏捷开发 项目管理 腾讯敏捷产品研发平台",
     "url": "https://www.tapd.cn/",
     "icon": "https://www.tapd.cn/favicon_new.png",
@@ -180,6 +306,20 @@
     "createdAt": "2026-04-14T15:54:21.473Z",
     "updatedAt": "2026-04-14T15:54:21.473Z",
     "order": 23
+  },
+  {
+    "name": "Midjourney",
+    "url": "https://www.midjourney.com/home",
+    "description": "AI图像和插画生成工具",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "1675b540-20d2-4297-a69d-f49f7d803ebc",
+    "id": "7dc37080-2d80-4ee6-8cfc-ffe5ee9c27b0",
+    "createdAt": "2026-04-19T10:43:27.227Z",
+    "updatedAt": "2026-04-19T10:43:47.662Z",
+    "order": 56,
+    "icon": "https://www.midjourney.com/public/apple-touch-icon.png"
   },
   {
     "name": "docsmall - 免费的在线图片、PDF处理工具",
@@ -210,6 +350,20 @@
     "order": 14
   },
   {
+    "name": "无界AI-人人都是艺术家",
+    "url": "https://www.wujieai.com/",
+    "icon": "https://www.wujieai.com/favicon.ico",
+    "description": "无界AI，集prompt搜索、AI图库、AI创作、AI广场、词/图等为一体。提供一站式AI搜索-创作-交流-分享服务。",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "1675b540-20d2-4297-a69d-f49f7d803ebc",
+    "id": "8a2627e1-e11f-4b7f-8115-e517ce3967fa",
+    "createdAt": "2026-04-19T10:46:10.112Z",
+    "updatedAt": "2026-04-19T10:46:10.112Z",
+    "order": 57
+  },
+  {
     "name": "飞书文档-可多人实时编辑的在线文档（文档、表格、思维笔记）高效协同办公软件",
     "url": "https://docs.feishu.cn/",
     "icon": "https://p1-hera.byteimg.com/tos-cn-i-jbbdkfciu3/1eec3176b81146b9b303b9c626b99963~tplv-jbbdkfciu3-image:0:0.image",
@@ -222,6 +376,20 @@
     "createdAt": "2026-04-14T15:52:51.979Z",
     "updatedAt": "2026-04-14T15:52:51.979Z",
     "order": 21
+  },
+  {
+    "name": "AI Coding Assistant - Agentic Coding Platform | Qoder",
+    "url": "https://qoder.com/",
+    "icon": "https://img.alicdn.com/imgextra/i3/O1CN01KliT1u1jEq947NlKH_!!6000000004517-55-tps-180-180.svg",
+    "description": "Qoder is an AI-powered agentic coding platform for real software development. Experience intelligent code generation, conversation-based programming, and advanced developer tools.",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "2099a287-1f54-4462-8e82-115e7f6ae719",
+    "id": "8eaa7e9c-1c48-424d-a37f-09a77761b084",
+    "createdAt": "2026-04-19T10:23:30.746Z",
+    "updatedAt": "2026-04-19T10:23:30.746Z",
+    "order": 37
   },
   {
     "name": "Notion",
@@ -252,6 +420,20 @@
     "order": 3
   },
   {
+    "name": "讯飞星火-懂我的AI助手",
+    "url": "https://xinghuo.xfyun.cn/desk",
+    "icon": "https://xinghuo.xfyun.cn/spark-icon.ico",
+    "description": "讯飞星火大模型，是由科大讯飞推出的新一代认知智能大模型，拥有跨领域的知识和语言理解能力，能够基于自然对话方式理解与执行任务，提供语言理解、知识问答、逻辑推理、数学题解答、代码理解与编写等多种能力。",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "f6ead6fe-5e01-4160-b811-840956c66de5",
+    "id": "a2668dc8-cc44-4abe-a039-2abd980596d2",
+    "createdAt": "2026-04-19T10:28:43.048Z",
+    "updatedAt": "2026-04-19T10:28:43.048Z",
+    "order": 41
+  },
+  {
     "name": "DeepSeek | 深度求索",
     "url": "https://www.deepseek.com/",
     "icon": "https://www.deepseek.com/favicon.ico",
@@ -264,6 +446,62 @@
     "createdAt": "2026-04-11T09:04:56.633Z",
     "updatedAt": "2026-04-12T14:27:31.774Z",
     "order": 1
+  },
+  {
+    "name": "Cline - AI Coding, Open Source and Uncompromised",
+    "url": "https://cline.bot/",
+    "icon": "https://cline.bot/assets/branding/favicons/favicon-16x16.png",
+    "description": "Open-source AI coding agent with Plan/Act modes, MCP integration, and terminal-first workflows. Trusted by 5M+ developers worldwide.",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "2099a287-1f54-4462-8e82-115e7f6ae719",
+    "id": "a773439e-d05f-437a-8259-592d71c3323f",
+    "createdAt": "2026-04-19T10:29:24.008Z",
+    "updatedAt": "2026-04-19T10:29:24.008Z",
+    "order": 42
+  },
+  {
+    "name": "CodeFlying-码上飞，AI 人工智能自动软件、小程序、APP应用开发平台",
+    "url": "https://www.codeflying.net/",
+    "icon": "https://www.codeflying.net/favicon.ico",
+    "description": "码上飞（CodeFlying）是全球领先的通过对话开发软件的AI自动化开发平台，无需编码经验，通过自然语言描述即可自动生成完整应用程序。",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "2099a287-1f54-4462-8e82-115e7f6ae719",
+    "id": "a8ee9623-e557-4252-8ac7-199ae12de31c",
+    "createdAt": "2026-04-19T10:40:22.093Z",
+    "updatedAt": "2026-04-19T10:40:22.093Z",
+    "order": 54
+  },
+  {
+    "name": "扣子 Coze - 字节跳动旗下职场AI伙伴扣子与一站式AI开发平台扣子编程 PPT数据分析小程序开发APP开发网页开发平面设计教学备课报告写作自媒体播客视频智能体工作流",
+    "url": "https://www.coze.cn/overview",
+    "icon": "https://www.coze.cn/space-intro/favicon.ico",
+    "description": "职场AI就用扣子，字节跳动旗下职场AI与一站式AI开发平台，可操作电脑和手机，直接交付结果，好用易上手。如何用AI提升教学、科研和行政效率？怎么用AI做自媒体内容和朋友圈内容？用AI开发和部署官网、活动营销页面、网页应用？想用AI分析竞品、策划营销、打造爆款、写述职报告、做转正PPT？无需复杂指令，在扣子和扣子编程用AI轻松搞定。",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "8a8ad376-4906-4a1b-a245-d8971bd61dd9",
+    "id": "ad82b712-9b95-44f3-95b0-e3b3d1bf1a52",
+    "createdAt": "2026-04-19T10:33:03.066Z",
+    "updatedAt": "2026-04-19T10:33:03.066Z",
+    "order": 46
+  },
+  {
+    "name": "秒哒-无代码应用搭建平台，一句话做应用",
+    "url": "https://www.miaoda.cn/",
+    "icon": "https://resource-static.cdn.bcebos.com/img/favicon.png",
+    "description": "秒哒是一款零代码应用生成平台，无需编程经验，通过自然语言对话式和拖拽式搭建具有完整前后端的应用，一句话生成各类应用，支持生成网站、小程序、H5、小游戏、小工具、轻应用等，提供海量免费模版，24小时在线agent团队，0成本极速上线，无需运维，一人即团队，让每个人都具备程序员能力。",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "2099a287-1f54-4462-8e82-115e7f6ae719",
+    "id": "ae08ff2f-f9af-4e61-b95a-4fb51599d829",
+    "createdAt": "2026-04-19T10:39:52.367Z",
+    "updatedAt": "2026-04-19T10:39:52.367Z",
+    "order": 52
   },
   {
     "name": "shadcn/ui | The Foundation for your Design System ",
@@ -308,6 +546,20 @@
     "order": 24
   },
   {
+    "name": "Claude Code by Anthropic | AI Coding Agent, Terminal, IDE",
+    "url": "https://claude.com/product/claude-code",
+    "icon": "https://claude.com/favicon.ico",
+    "description": "Claude Code 是由 Anthropic 推出的智能编码助手，旨在通过自然语言交互和强大的实操能力来提升开发者的编码效率。",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "2099a287-1f54-4462-8e82-115e7f6ae719",
+    "id": "c5832a9f-ae84-41b4-a50f-1c1d0b93c4c1",
+    "createdAt": "2026-04-19T10:25:48.132Z",
+    "updatedAt": "2026-04-19T10:25:48.132Z",
+    "order": 39
+  },
+  {
     "name": "TuringPlanet &#8211; 编程和AI爱好者的栖息地",
     "url": "https://turingplanet.org/",
     "icon": "https://i0.wp.com/turingplanet.org/wp-content/uploads/2020/09/cropped-Screen-Shot-2020-09-25-at-10.48.13-AM.png?fit=32%2C32&#038;ssl=1",
@@ -320,6 +572,20 @@
     "createdAt": "2026-04-14T16:13:09.006Z",
     "updatedAt": "2026-04-14T16:13:09.006Z",
     "order": 31
+  },
+  {
+    "name": "Cursor ",
+    "url": "https://cursor.com/",
+    "icon": "https://cursor.com/marketing-static/favicon.svg",
+    "description": "Cursor 专为大幅提升您的生产力而打造，是使用 AI 编码的最佳方式。",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "2099a287-1f54-4462-8e82-115e7f6ae719",
+    "id": "dd0a1511-9744-4735-9c64-3d77b582c964",
+    "createdAt": "2026-04-19T10:24:23.407Z",
+    "updatedAt": "2026-04-19T10:24:23.407Z",
+    "order": 38
   },
   {
     "name": "ProcessOn",
@@ -364,6 +630,20 @@
     "order": 0
   },
   {
+    "name": "MiniMax",
+    "url": "https://www.minimaxi.com/",
+    "icon": "https://www.minimaxi.com/favicon.ico",
+    "description": "MiniMax是全球领先的通用人工智能科技公司，致力于&quot;与所有人共创智能&quot;，自主研发了一系列多模态通用大模型，并面向全球推出一系列AI原生产品，已服务逾 2亿名用户",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "f6ead6fe-5e01-4160-b811-840956c66de5",
+    "id": "ebac3880-3fce-46b7-b65e-d38c59e51756",
+    "createdAt": "2026-04-19T10:46:53.209Z",
+    "updatedAt": "2026-04-19T10:46:53.209Z",
+    "order": 58
+  },
+  {
     "name": "印象笔记 - 效率工具的瑞士军刀",
     "url": "https://www.yinxiang.com/",
     "icon": "https://www.yinxiang.com/assets/favicon-CXSibozi.png",
@@ -376,6 +656,20 @@
     "createdAt": "2026-04-14T15:54:54.928Z",
     "updatedAt": "2026-04-14T15:54:54.928Z",
     "order": 25
+  },
+  {
+    "name": "QClaw - 微信远程办公 AI 助手 | 腾讯出品",
+    "url": "https://qclaw.qq.com/",
+    "icon": "https://cdn.qclaw.qq.com/qclaw/website/image/favicon.png",
+    "description": "QClaw 是腾讯推出的个人AI助手，可微信远程整理文件、执行复杂任务、无需编程基础，适配办公 / 创作 / 开发等多场景，丰富技能生态越用越懂你。",
+    "tags": [],
+    "isPinned": false,
+    "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
+    "categoryId": "8a8ad376-4906-4a1b-a245-d8971bd61dd9",
+    "id": "f3e80452-7d6b-4537-864a-2c3c0b569329",
+    "createdAt": "2026-04-19T10:31:48.697Z",
+    "updatedAt": "2026-04-19T10:31:48.697Z",
+    "order": 45
   },
   {
     "name": "TDesign - 开源的企业级设计体系，为设计师 & 开发者，打造工作美学",
