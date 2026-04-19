@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "web-jump1",
+  "name": "web-jump",
   "compatibility_date": "2026-04-14",
   "observability": {
     "enabled": true
