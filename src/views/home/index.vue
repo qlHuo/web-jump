@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full bg-linear-to-bl">
+  <div class="home h-full">
     <PageHeader />
     <div class="container h-[calc(100%-200px)] flex m-auto mt-4">
       <t-loading fullscreen :loading="loading"></t-loading>
@@ -8,47 +8,124 @@
         <WebsiteCardList v-for="item in fullData" :key="item.key" :data="item" :id="item.key" class="scroll-mt-19" />
       </div>
     </div>
+    <t-back-top
+      shape="circle"
+      size="small"
+      theme="primary"
+      :visible-height="200"
+      :offset="[20, 0]"
+      class="fixed !bottom-6 right-6 z-10"
+    ></t-back-top>
   </div>
 </template>
 
-<script lang="ts" setup>
-import { onMounted, ref, version } from 'vue'
-import { useDirectoryApi, useWebsiteApi, useWorkerApi } from '@/composable/api'
+<script lang="tsx" setup>
+import { onMounted, ref } from 'vue'
+import { useDirectoryApi, useGlobalApi, useWebsiteApi, useWorkerApi } from '@/composable/api'
 import type { Directory, FullWebsiteStructure } from '@/db/models'
+import type { NotificationInstance } from 'tdesign-vue-next'
 import PageHeader from './header/index.vue'
 import RenderMenu from './components/RenderMenu.vue'
 import WebsiteCardList from './components/WebsiteCardList.vue'
+import NotificationPlugin from 'tdesign-vue-next/es/notification/plugin'
 
 const fullData = ref<FullWebsiteStructure>([])
 const directoryList = ref<Directory[]>([])
 const loading = ref<boolean>(false)
+const notification = ref<Promise<NotificationInstance>>()
+
+const handleOpenNotification = () => {
+  if (notification.value) return false
+  notification.value = NotificationPlugin.info({
+    title: '检测到数据有更新，是否同步远程数据？',
+    content: '此操作将增量更新本地网站，不会删除您本地的数据，请确认是否更新！',
+    placement: 'bottom-right',
+    duration: 0,
+    footer: () => {
+      return (
+        <div class="flex justify-end">
+          <t-button theme="default" variant="text" onClick={handleCloseNotification}>
+            取消
+          </t-button>
+          <t-button theme="primary" variant="text" onClick={() => handleSyncLocalData('notice')}>
+            更新
+          </t-button>
+        </div>
+      )
+    },
+  })
+}
+
+// 关闭notice弹窗
+const handleCloseNotification = async () => {
+  const notificationInstance = (await notification.value) as NotificationInstance
+  notificationInstance?.close()
+}
+
+// 同步远程数据到本地
+const handleSyncLocalData = async (type?: string) => {
+  type === 'notice' && handleCloseNotification()
+  loading.value = true
+  // 先同步远程数据到本地数据库
+  await fetchSyncRemoteData()
+  await getDirectoryList()
+  await getFullData()
+  loading.value = false
+}
 
 // 同步远程数据到本地
 const syncRemoteDataToLocalDB = async () => {
-  const { version: localVersion } = localStorage.getItem('currentVesion')
-    ? JSON.parse(localStorage.getItem('currentVesion')!)
-    : {}
-  const { success, data, message } = await useWorkerApi().getRemoteLatestVersion()
-  if (success) {
-    const remoteVersion = data.version
-    if (localVersion && remoteVersion === localVersion) {
-      console.log('数据已是最新版本，无需更新')
+  try {
+    // 检查相关表是否有数据
+    const hasTableData = await useGlobalApi().getTablesHasData(['directories', 'categories', 'websites'])
+
+    // 安全获取本地版本号
+    let localVersion: string | null = null
+    try {
+      const storedVersion = localStorage.getItem('currentVersion')
+      if (storedVersion) {
+        const parsed = JSON.parse(storedVersion)
+        localVersion = parsed.version ?? null
+      }
+    } catch (error) {
+      console.warn('解析本地版本号失败:', error)
+      localVersion = null
+    }
+
+    // 获取远程最新版本信息
+    const { success, data, message } = await useWorkerApi().getRemoteLatestVersion()
+    if (!success) {
+      console.error('获取远程最新版本失败:', message)
       return
     }
-    await handleSyncLogic()
-  } else {
-    console.error('getRemoteLatestVersion error', message)
+
+    const remoteVersion = data.version
+    // 判断是否需要同步
+    const isVersionMatch = localVersion && remoteVersion === localVersion
+    // 版本一致或本地已有数据，无需同步
+    if (isVersionMatch && hasTableData) return
+
+    // 本地无数据，直接同步
+    if (!hasTableData) {
+      await handleSyncLocalData()
+      return
+    }
+
+    // 本地有数据且版本不一致，提示用户是否同步
+    handleOpenNotification()
+  } catch (error) {
+    console.error('同步远程数据到本地数据库过程中发生错误:', error)
   }
 }
 
-// 同步数据的逻辑
-const handleSyncLogic = async () => {
+// 获取远程数据并同步
+const fetchSyncRemoteData = async () => {
   const { data, success, message } = await useWorkerApi().getRemoteWebsiteData()
   if (success) {
     const { directory, categories, websites, versions } = data
     // 更新版本号并同步数据到本地数据库
-    localStorage.setItem('currentVesion', JSON.stringify(versions?.[0]))
-    useWebsiteApi().syncAllDataToLocalDB(directory, categories, websites)
+    localStorage.setItem('currentVersion', JSON.stringify(versions?.[0]))
+    await useWebsiteApi().syncAllDataToLocalDB(directory, categories, websites)
   } else {
     console.error('getRemoteWebsitesData error', message)
   }
@@ -73,11 +150,11 @@ const getFullData = async () => {
 }
 
 onMounted(async () => {
-  loading.value = true
-  await syncRemoteDataToLocalDB()
+  // 先获取本地数据
   await getDirectoryList()
   await getFullData()
-  loading.value = false
+  // 同步数据逻辑
+  await syncRemoteDataToLocalDB()
 })
 
 // 菜单点击事件处理函数
@@ -90,5 +167,3 @@ const handleClickMenuItem = (item: Directory) => {
   targetElement?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 </script>
-
-<style></style>

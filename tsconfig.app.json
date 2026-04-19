@@ -1,6 +1,6 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "src/**/*.tsx"],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
     "composite": true,
@@ -14,6 +14,11 @@
 
     // `vue-tsc --build` produces a .tsbuildinfo file for incremental type-checking.
     // Specified here to keep it out of the root directory.
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo"
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+
+    "jsx": "preserve", // 保持 JSX 不被编译
+    "jsxFactory": "h", // Vue 3 使用 h 函数
+    "jsxFragmentFactory": "Fragment",
+    "jsxImportSource": "vue" // 指定 JSX 编译源
   }
 }

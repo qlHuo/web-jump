@@ -47,6 +47,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import logo from '@/assets/logo.svg'
 
 const visible = ref<boolean>(false)
 
@@ -61,7 +62,7 @@ const searchEngines = ref<SearchEngine[]>([
   {
     name: '本站',
     value: 'local',
-    icon: 'https://websites.holyer.site/assets/logo-D4pi2lMS.svg',
+    icon: logo,
     url: 'http://websites.holyer.site/search?q=',
     placeholder: '搜索本站内容...',
   },

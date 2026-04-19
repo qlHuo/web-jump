@@ -25,12 +25,16 @@
       <div
         v-for="item in websiteList"
         :key="item.id"
-        class="w-full h-full rounded-md cursor-pointer p-2 border border-gray-200 hover:shadow-md"
+        class="group w-full h-full rounded-md cursor-pointer p-2 border border-gray-200 hover:shadow-md"
         @click="handleWebsiteClick(item)"
       >
-        <div class="h-8 flex items-center mb-2 text-sm">
-          <img :src="item.icon" alt="" class="w-8 h-8 rounded-sm object-cover mr-2" />
-          <HiEllipsis :content="item.name" />
+        <div class="h-8 flex items-center mb-2 text-sm group-hover:text-[var(--td-brand-color)]">
+          <t-image class="w-6 h-6 rounded-sm object-cover mr-2 !bg-transparent" :src="item.icon" shape="circle">
+            <template #error>
+              <HiIcon name="icon-24gl-network" size="24px" />
+            </template>
+          </t-image>
+          <HiEllipsis class="flex-1 group-hover:underline group-hover:font-bold" :content="item.name" />
         </div>
         <div class="h-8 text-xs text-gray-500">
           <HiEllipsis :content="item.description" :line-clamp="2" :tooltipAttrs="{ placement: 'bottom' }" />
@@ -78,8 +82,6 @@ const handleTabChange = (value: string) => {
   websiteList.value = category?.websites || []
 }
 const handleWebsiteClick = (item: { url: string }) => {
-  console.log(`点击了网站：`, item)
+  window.open(item.url, '_blank')
 }
 </script>
-
-<style scoped lang="less"></style>
