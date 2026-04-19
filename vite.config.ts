@@ -6,6 +6,8 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 import tailwindcss from '@tailwindcss/vite'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 // https://vite.dev/config/
 export default defineConfig({
   server: {
@@ -13,7 +15,7 @@ export default defineConfig({
     port: 5173, // 可选：指定端口
     open: false, // 自动打开浏览器
   },
-  plugins: [vue(), vueDevTools(), tailwindcss(), vueJsx()],
+  plugins: [vue(), vueDevTools(), tailwindcss(), cloudflare(), vueJsx()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
