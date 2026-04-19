@@ -125,7 +125,7 @@ const fetchSyncRemoteData = async () => {
     const { directory, categories, websites, versions } = data
     // 更新版本号并同步数据到本地数据库
     localStorage.setItem('currentVersion', JSON.stringify(versions?.[0]))
-    await useWebsiteApi().syncAllDataToLocalDB(directory, categories, websites)
+    await useGlobalApi().importWebsiteData(directory, categories, websites)
   } else {
     console.error('getRemoteWebsitesData error', message)
   }

@@ -13,8 +13,8 @@
       <t-list-item
         v-for="item in directoryList"
         :key="item.id"
-        class="cursor-pointer text-[var(--td-text-color-primary)] hover:bg-[var(--td-brand-color-1)] hover:text-[var(--td-brand-color-7)] p-2 rounded mb-1 text-sm"
-        :class="selectDirectory?.id === item.id ? '!bg-[var(--td-brand-color-1)] !text-[var(--td-brand-color-7)]' : ''"
+        class="cursor-pointer text-[var(--td-text-color-primary)] hover:bg-[var(--td-brand-color-1)] hover:text-[var(--td-brand-color)] p-2 rounded mb-1 text-sm"
+        :class="selectDirectory?.id === item.id ? '!bg-[var(--td-brand-color-1)] !text-[var(--td-brand-color)]' : ''"
         @click="handleClickItem(item)"
       >
         <HiEllipsis class="!pr-1" style="width: 100%" :content="item.name"></HiEllipsis>

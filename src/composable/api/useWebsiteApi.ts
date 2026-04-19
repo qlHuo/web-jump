@@ -1,4 +1,4 @@
-import type { Category, Directory, Website } from '@/db/models'
+import type { Website } from '@/db/models'
 import websiteService from '@/db/service/website'
 
 export function useWebsiteApi() {
@@ -52,11 +52,6 @@ export function useWebsiteApi() {
     return data
   }
 
-  // 同步所有数据到本地数据库
-  async function syncAllDataToLocalDB(directories: Directory[], categories: Category[], websites: Website[]) {
-    await websiteService.syncAllDataToLocalDB(directories, categories, websites)
-  }
-
   return {
     createWebsite,
     updateWebsite,
@@ -66,6 +61,5 @@ export function useWebsiteApi() {
     getWebsitesByCategoryId,
     getFullWebsitesStructure,
     getAll,
-    syncAllDataToLocalDB,
   }
 }
