@@ -26,10 +26,10 @@ import { ref } from 'vue'
 import { useGlobalApi, useWorkerApi } from '@/composable/api'
 import { MessagePlugin, type DropdownItemProps } from 'tdesign-vue-next'
 import type { Directory } from '@/db/models'
-import AsideDirectory from './AsideDirectory.vue'
-import Content from './Content.vue'
-import PushRemoteDialog from './PushRemoteDialog.vue'
-import ImportDialog from './ImportDialog.vue'
+import AsideDirectory from './components/AsideDirectory.vue'
+import Content from './components/Content.vue'
+import PushRemoteDialog from './components/PushRemoteDialog.vue'
+import ImportDialog from './components/ImportDialog.vue'
 
 const directoryId = ref<string>('')
 const pushRemoteDialogRef = ref()
