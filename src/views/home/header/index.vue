@@ -1,27 +1,17 @@
 <template>
   <header class="h-50 w-full relative">
-    <div
-      :class="[
-        'w-full flex justify-between gap-2 p-4 fixed top-0 left-0 z-2 h-15',
-        {
-          'bg-white text-neutral-700 shadow-md': isScrolled,
-          'bg-transparent text-white': !isScrolled,
-        },
-      ]"
-    >
-      <div class="flex items-center gap-2">
-        <t-image class="w-6 h-6 !bg-transparent" :src="logo" alt="Web Jump Logo" />
-        <h1 class="text-lg font-bold">Hi 导航</h1>
-      </div>
-      <div class="flex gap-2">
-        <div v-show="isScrolled" class="w-7 h-7 cursor-pointer text-center" @click="bgSearch = true">
-          <HiIcon name="icon-icon_searh" size="20px" />
+    <Header class="fixed top-0 left-0 z-2" :theme="headerTheme">
+      <template #right>
+        <div class="flex gap-2">
+          <div v-show="isScrolled" class="w-7 h-7 cursor-pointer text-center" @click="bgSearch = true">
+            <HiIcon name="icon-icon_searh" size="20px" />
+          </div>
+          <div class="md:hidden w-7 h-7 cursor-pointer text-center" @click="handleToggleMenu">
+            <HiIcon name="icon-ego-menu" size="20px" />
+          </div>
         </div>
-        <div class="md:hidden w-7 h-7 cursor-pointer text-center" @click="handleToggleMenu">
-          <HiIcon name="icon-ego-menu" size="20px" />
-        </div>
-      </div>
-    </div>
+      </template>
+    </Header>
     <div class="h-full w-full">
       <img
         class="h-full w-full absolute top-0 left-0 object-cover opacity-95 sepia-50"
@@ -40,14 +30,14 @@
         class="fixed top-0 left-0 bottom-0 right-0 w-full h-full bg-black opacity-60 z-100"
         @click="bgSearch = false"
       ></div>
-      <SearchInput class="fixed left-10 right-10 z-101 !w-[calc(100%-80px)]" />
+      <SearchInput class="fixed left-4 right-4 z-101 !w-[calc(100%-32px)]" />
     </template>
   </header>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import logo from '@/assets/logo.svg'
+import { computed, ref } from 'vue'
+import Header from '@/components/header/index.vue'
 import SearchInput from './components/SearchInput.vue'
 import { useScroll } from '@/composable/useScroll'
 import { useMenuStore } from '@/stores/menuStore.ts'
@@ -59,6 +49,14 @@ const bgSearch = ref(false)
 const handleToggleMenu = () => {
   menuStore.toggleMenu()
 }
+
+const headerTheme = computed(() => {
+  if (!isScrolled.value) {
+    return 'transparent'
+  } else {
+    return 'light'
+  }
+})
 </script>
 
 <style scoped lang="less"></style>

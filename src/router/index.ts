@@ -14,6 +14,12 @@ const router = createRouter({
       name: 'admin',
       component: () => import('@/views/admin/index.vue'),
     },
+    // 管理员界面（后续可细分为多个子路由，如目录管理、分类管理、网站管理等）
+    {
+      path: '/search',
+      name: 'search',
+      component: () => import('@/views/search/index.vue'),
+    },
     {
       path: '/404',
       name: 'NotFound',

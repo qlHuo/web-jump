@@ -47,8 +47,8 @@ export function useWebsiteApi() {
     return data
   }
 
-  async function getAll() {
-    const data = await websiteService.getAll()
+  async function getAll(name?: string) {
+    const data = await websiteService.getAll(name)
     return data
   }
 

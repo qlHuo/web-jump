@@ -2,6 +2,7 @@
   <div class="w-full">
     <t-input
       class="search-input"
+      v-model="searchValue"
       clearable
       :placeholder="selectedEngine.placeholder"
       @enter="handleSearch"
@@ -46,10 +47,15 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { onBeforeMount, ref, watch } from 'vue'
 import logo from '@/assets/logo.svg'
+import router from '@/router'
+import { useRoute } from 'vue-router'
 
+const route = useRoute()
+const emits = defineEmits(['search'])
 const visible = ref<boolean>(false)
+const searchValue = ref<string>('')
 
 type SearchEngine = {
   name: string
@@ -58,6 +64,15 @@ type SearchEngine = {
   url: string
   placeholder?: string
 }
+
+watch(
+  () => route.query.q,
+  val => {
+    searchValue.value = val as string
+  },
+  { immediate: true }
+)
+
 const searchEngines = ref<SearchEngine[]>([
   {
     name: '本站',
@@ -102,19 +117,31 @@ const searchEngines = ref<SearchEngine[]>([
     placeholder: '有问题？上知乎！',
   },
 ])
-
 const selectedEngine = ref<SearchEngine>(searchEngines.value[0]!)
+
 const handleSearchEngineSelect = (engine: SearchEngine) => {
+  localStorage.setItem('searchEngine', JSON.stringify(engine))
   selectedEngine.value = engine
   visible.value = false
-  // 在这里可以根据选择的搜索引擎进行相应的处理，例如更新输入框的占位符或执行搜索
 }
 
 const handleSearch = (value: string) => {
+  if (selectedEngine.value.value === 'local') {
+    emits('search', value)
+    router.push(`/search?q=${value}`)
+    return
+  }
   if (!value) return
   const searchUrl = `${selectedEngine.value.url}${encodeURIComponent(value)}`
   window.open(searchUrl, '_blank')
 }
+
+onBeforeMount(() => {
+  const savedEngine = localStorage.getItem('searchEngine')
+  if (savedEngine) {
+    selectedEngine.value = JSON.parse(savedEngine)
+  }
+})
 </script>
 
 <style scoped lang="less">
