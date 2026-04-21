@@ -5,14 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "run-p type-check \"build-only {@}\" -- && npm run sitemap",
     "preview": "pnpm run build-only && wrangler dev",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --ext .vue,.js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .vue,.js,.ts --fix",
     "format": "prettier --write src/",
-    "deploy": "pnpm run build-only && wrangler deploy"
+    "deploy": "pnpm run build-only && wrangler deploy",
+    "sitemap": "tsx scripts/generate-sitemap.ts"
   },
   "dependencies": {
     "dexie": "^4.4.2",
@@ -48,11 +49,12 @@
     "postcss": "^8.5.8",
     "prettier": "3.8.1",
     "tailwindcss": "^4.2.2",
+    "tsx": "^4.21.0",
     "typescript": "~5.9.3",
     "vite": "^7.3.1",
     "vite-plugin-vue-devtools": "^8.0.7",
-    "vue-tsc": "^3.2.5",
     "vue-eslint-parser": "^10.4.0",
+    "vue-tsc": "^3.2.5",
     "wrangler": "^4.82.2"
   },
   "engines": {
