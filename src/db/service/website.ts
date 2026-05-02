@@ -33,7 +33,10 @@ export default {
   // 查询所有的网站
   getAll: async (name?: string): Promise<Website[]> => {
     return handleError(async () => {
-      return await db.websites.filter(item => item.name.includes(name as string)).toArray()
+      if (!name) {
+        return await db.websites.toArray()
+      }
+      return await db.websites.where('name').startsWith(name).toArray()
     }, '获取网站列表')
   },
 
