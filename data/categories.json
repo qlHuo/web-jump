@@ -1,18 +1,18 @@
 [
   {
-    "name": "社交社区",
-    "directoryId": "f207e530-4b17-43f4-97f7-ec3240db64fc",
-    "id": "029cb161-af50-4918-95c3-295b9893e7c1",
-    "createdAt": "2026-04-11T09:42:53.044Z",
-    "updatedAt": "2026-04-11T09:42:53.044Z",
-    "order": 22
+    "name": "图片处理",
+    "directoryId": "aac9b859-626b-45e7-a4af-9b9a2caf86f4",
+    "id": "04228c21-e769-4112-9764-43fdfe4b7f2b",
+    "createdAt": "2026-04-22T14:28:03.229Z",
+    "updatedAt": "2026-04-22T14:28:03.229Z",
+    "order": 27
   },
   {
-    "name": "配色方案",
+    "name": "设计规范",
     "directoryId": "20359700-ce75-4aca-b5ec-d3bef7e2c6fa",
     "id": "0a62b9e5-92c1-45b1-8400-361b925240b6",
     "createdAt": "2026-04-11T09:40:31.392Z",
-    "updatedAt": "2026-04-11T09:40:31.392Z",
+    "updatedAt": "2026-05-01T08:54:21.232Z",
     "order": 18
   },
   {
@@ -30,6 +30,14 @@
     "createdAt": "2026-04-11T09:06:52.253Z",
     "updatedAt": "2026-04-11T09:06:52.253Z",
     "order": 3
+  },
+  {
+    "name": "工具综合",
+    "directoryId": "aac9b859-626b-45e7-a4af-9b9a2caf86f4",
+    "id": "1a70df2e-0a9f-4e5e-a89e-0ca59aeac211",
+    "createdAt": "2026-04-22T14:34:33.073Z",
+    "updatedAt": "2026-04-22T14:34:33.073Z",
+    "order": 28
   },
   {
     "name": "AI编程",
@@ -64,14 +72,6 @@
     "order": 21
   },
   {
-    "name": "操作系统",
-    "directoryId": "fe443b17-2afd-4a48-b2e6-701f86ed729d",
-    "id": "5ed9c3dd-389e-471a-ab75-0a8305f8250d",
-    "createdAt": "2026-04-11T09:36:34.390Z",
-    "updatedAt": "2026-04-11T09:36:34.390Z",
-    "order": 7
-  },
-  {
     "name": "UI框架",
     "directoryId": "06e4b5ce-47e2-4057-8ba4-1901ea4261ba",
     "id": "684e3ed0-3302-4a7d-b2c5-3590e9d8a91d",
@@ -88,22 +88,6 @@
     "order": 4
   },
   {
-    "name": "在线阅读",
-    "directoryId": "8fa7736c-fcca-49f1-a10d-f49184d40e75",
-    "id": "6be51745-087b-4b26-afae-6c40e725ab79",
-    "createdAt": "2026-04-11T09:45:39.245Z",
-    "updatedAt": "2026-04-11T09:45:39.245Z",
-    "order": 26
-  },
-  {
-    "name": "便民服务",
-    "directoryId": "f207e530-4b17-43f4-97f7-ec3240db64fc",
-    "id": "73143895-4183-4906-9fe3-e3fd8cd800be",
-    "createdAt": "2026-04-11T09:43:20.897Z",
-    "updatedAt": "2026-04-11T09:43:20.897Z",
-    "order": 23
-  },
-  {
     "name": "AI办公",
     "directoryId": "0e443469-96c5-4d2f-b72c-3657b594775b",
     "id": "8a8ad376-4906-4a1b-a245-d8971bd61dd9",
@@ -112,20 +96,20 @@
     "order": 2
   },
   {
-    "name": "数据结构与算法",
+    "name": "编程基础",
     "directoryId": "fe443b17-2afd-4a48-b2e6-701f86ed729d",
     "id": "8b4ecf13-ac0f-428a-8bc5-1c0a3311bb92",
     "createdAt": "2026-04-11T09:36:21.609Z",
-    "updatedAt": "2026-04-11T09:36:21.609Z",
+    "updatedAt": "2026-05-01T07:01:22.459Z",
     "order": 6
   },
   {
-    "name": "音乐网站",
-    "directoryId": "8fa7736c-fcca-49f1-a10d-f49184d40e75",
-    "id": "9d490739-6611-4133-87f5-f05731ade64a",
-    "createdAt": "2026-04-11T09:44:50.226Z",
-    "updatedAt": "2026-04-11T09:44:50.226Z",
-    "order": 25
+    "name": "技术社区",
+    "directoryId": "fe443b17-2afd-4a48-b2e6-701f86ed729d",
+    "id": "a094ed71-da7e-459c-b194-4bca6cb2e43a",
+    "createdAt": "2026-05-01T09:00:25.487Z",
+    "updatedAt": "2026-05-01T09:00:25.487Z",
+    "order": 29
   },
   {
     "name": "协作平台",
@@ -136,19 +120,11 @@
     "order": 5
   },
   {
-    "name": "图标&字体",
-    "directoryId": "20359700-ce75-4aca-b5ec-d3bef7e2c6fa",
-    "id": "ace90bf4-6f25-442b-abd1-df1db38241d0",
-    "createdAt": "2026-04-11T09:40:24.253Z",
-    "updatedAt": "2026-04-11T09:40:24.253Z",
-    "order": 17
-  },
-  {
-    "name": "设计素材",
+    "name": "设计工具",
     "directoryId": "20359700-ce75-4aca-b5ec-d3bef7e2c6fa",
     "id": "d37b0403-7548-4428-a953-1c3f9747b815",
     "createdAt": "2026-04-11T09:40:00.485Z",
-    "updatedAt": "2026-04-11T09:40:00.485Z",
+    "updatedAt": "2026-05-01T07:58:19.424Z",
     "order": 16
   },
   {
@@ -158,14 +134,6 @@
     "createdAt": "2026-04-11T09:41:49.589Z",
     "updatedAt": "2026-04-11T09:41:49.589Z",
     "order": 20
-  },
-  {
-    "name": "影视动漫",
-    "directoryId": "8fa7736c-fcca-49f1-a10d-f49184d40e75",
-    "id": "eb1923ce-7046-4d8c-8dd2-ddbbfe2c25db",
-    "createdAt": "2026-04-11T09:43:40.366Z",
-    "updatedAt": "2026-04-11T09:43:40.366Z",
-    "order": 24
   },
   {
     "name": "AI助手",

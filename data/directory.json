@@ -16,11 +16,11 @@
     "order": 2
   },
   {
-    "name": "编程基础",
-    "key": "codebase",
+    "name": "技术开发",
+    "key": "techdev",
     "id": "fe443b17-2afd-4a48-b2e6-701f86ed729d",
     "createdAt": "2026-04-11T09:28:01.464Z",
-    "updatedAt": "2026-04-11T09:29:23.197Z",
+    "updatedAt": "2026-05-01T07:06:52.863Z",
     "order": 3
   },
   {
@@ -54,13 +54,5 @@
     "createdAt": "2026-04-11T09:34:59.515Z",
     "updatedAt": "2026-04-11T09:34:59.515Z",
     "order": 7
-  },
-  {
-    "name": "休闲娱乐",
-    "key": "entertainment",
-    "id": "8fa7736c-fcca-49f1-a10d-f49184d40e75",
-    "createdAt": "2026-04-11T09:35:53.225Z",
-    "updatedAt": "2026-04-11T09:35:53.225Z",
-    "order": 8
   }
 ]
