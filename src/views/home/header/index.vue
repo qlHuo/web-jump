@@ -16,7 +16,7 @@
       <img
         class="h-full w-full absolute top-0 left-0 object-cover opacity-95 sepia-50"
         style="filter: brightness(0.8)"
-        src="https://bing.com/th?id=OHR.CastleBlossoms_ZH-CN3064288127_UHD.jpg"
+        src="https://bing.com/th?id=OHR.BulgariaPlains_ZH-CN3853985252_1920x1080.jpg"
         alt=""
       />
       <div class="absolute top-0 left-0 w-full h-full pt-15 flex flex-col items-center justify-center gap-4 z-1 p-4">
