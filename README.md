@@ -39,7 +39,7 @@
 
 - **前端托管**: Cloudflare Pages
 - **API 服务**: Cloudflare Workers
-- **CI/CD**: GitHub Actions
+- **CI/CD**: Cloudflare Deploy
 - **域名管理**: Cloudflare DNS + 腾讯云
 
 ## 📁 项目结构
